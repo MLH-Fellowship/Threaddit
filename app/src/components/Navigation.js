@@ -16,12 +16,11 @@ export default function Navigation() {
     return (
         <Router>
           <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="light">
+            <Navbar.Brand as={Link} to="/" >Threddit</Navbar.Brand>
             <Nav className="mr-auto">
                   <Nav.Link as={Link} to="/" >Home</Nav.Link>
-          
                   <Nav.Link as={Link} to="/login" >Login</Nav.Link>
-           
                   <Nav.Link as={Link} to="/signup" >Sign up</Nav.Link>
               </Nav>
             </Navbar>
