@@ -1,20 +1,26 @@
 {
-  "devenv": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-threaddit-devenv-51621-authRole",
-      "UnauthRoleArn": "arn:aws:iam::550165026426:role/amplify-threaddit-devenv-51621-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::550165026426:role/amplify-threaddit-devenv-51621-authRole",
-      "Region": "ap-south-1",
-      "DeploymentBucketName": "amplify-threaddit-devenv-51621-deployment",
-      "UnauthRoleName": "amplify-threaddit-devenv-51621-unauthRole",
-      "StackName": "amplify-threaddit-devenv-51621",
-      "StackId": "arn:aws:cloudformation:ap-south-1:550165026426:stack/amplify-threaddit-devenv-51621/db8e2ef0-65b0-11eb-9af1-061f5e548e4c",
-      "AmplifyAppId": "dr1i7uq4rjox5"
-    },
-    "categories": {
-      "auth": {
-        "threaddite49feb88": {}
-      }
+    "devenv": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-threaddit-devenv-51621-authRole",
+            "UnauthRoleArn": "arn:aws:iam::550165026426:role/amplify-threaddit-devenv-51621-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::550165026426:role/amplify-threaddit-devenv-51621-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "amplify-threaddit-devenv-51621-deployment",
+            "UnauthRoleName": "amplify-threaddit-devenv-51621-unauthRole",
+            "StackName": "amplify-threaddit-devenv-51621",
+            "StackId": "arn:aws:cloudformation:ap-south-1:550165026426:stack/amplify-threaddit-devenv-51621/db8e2ef0-65b0-11eb-9af1-061f5e548e4c",
+            "AmplifyAppId": "dr1i7uq4rjox5"
+        },
+        "categories": {
+            "auth": {
+                "threaddite49feb88": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dr1i7uq4rjox5",
+                    "type": "manual"
+                }
+            }
+        }
     }
-  }
 }
