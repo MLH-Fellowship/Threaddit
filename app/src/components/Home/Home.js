@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Home() {
-  return <h2>Some Interesting Chats</h2>;
-}
+const Home = () => {
+  return <h2>Welcome to Threaddit!</h2>;
+};
+
+export default Home;
