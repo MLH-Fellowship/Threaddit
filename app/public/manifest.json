@@ -1,6 +1,6 @@
 {
-  "short_name": "Threddit",
-  "name": "Threddit",
+  "short_name": "Threaddit",
+  "name": "Threaddit",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
