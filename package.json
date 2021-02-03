@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "install": "cd app && yarn install",
     "start": "cd app && yarn start",
     "build": "cd app && yarn build",
     "test": "cd app && yarn test",
