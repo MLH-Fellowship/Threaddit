@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Home from "../Home/Home";
 import Chats from "../Chats/Chats";
 import { Navbar, Nav } from "react-bootstrap";
-
+import { AuthContext } from "../../store/AuthContext";
 import { Switch, Route, Link } from "react-router-dom";
-import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+import { AmplifySignOut } from "@aws-amplify/ui-react";
 
 const Navigation = () => {
+  const authContext = useContext(AuthContext);
+
+  const handleLogout = () => authContext.setIsAuth(false);
+
+  useEffect(() => {
+    authContext.checkAuth();
+  }, [authContext]);
+
   return (
     <>
       <Navbar bg="light">
@@ -20,9 +28,11 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/chats">
             Chats
           </Nav.Link>
-          <Nav.Item>
-            <AmplifySignOut />
-          </Nav.Item>
+          {authContext.isAuth && (
+            <Nav.Item>
+              <AmplifySignOut onClick={() => handleLogout()} />
+            </Nav.Item>
+          )}
         </Nav>
       </Navbar>
       <Switch>
