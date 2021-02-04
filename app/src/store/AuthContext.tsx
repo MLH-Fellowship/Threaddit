@@ -3,11 +3,11 @@ import { Auth } from "aws-amplify";
 
 export const AuthContext = React.createContext({
   isAuth: false,
-  setIsAuth: (_isAuth) => {},
+  setIsAuth: (_isAuth: boolean) => {},
   checkAuth: () => {},
 });
 
-const AuthContextProvider = (props) => {
+const AuthContextProvider: React.FC = (props) => {
   const [isAuth, setIsAuth] = useState(false);
   const checkAuth = async () => {
     try {

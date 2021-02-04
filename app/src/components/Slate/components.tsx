@@ -1,12 +1,11 @@
-import React, { Ref, PropsWithChildren } from 'react'
-import ReactDOM from 'react-dom'
-import { cx, css } from '@emotion/css'
+import React, { Ref, PropsWithChildren } from "react";
+import ReactDOM from "react-dom";
+import { cx, css } from "@emotion/css";
 
 interface BaseProps {
-  className: string
-  [key: string]: unknown
+  className: string;
+  [key: string]: unknown;
 }
-type OrNull<T> = T | null
 
 export const Button = React.forwardRef(
   (
@@ -17,11 +16,11 @@ export const Button = React.forwardRef(
       ...props
     }: PropsWithChildren<
       {
-        active: boolean
-        reversed: boolean
+        active: boolean;
+        reversed: boolean;
       } & BaseProps
     >,
-    ref: Ref<OrNull<HTMLSpanElement>>
+    ref: Ref<HTMLSpanElement>
   ) => (
     <span
       {...props}
@@ -32,16 +31,16 @@ export const Button = React.forwardRef(
           cursor: pointer;
           color: ${reversed
             ? active
-              ? 'white'
-              : '#aaa'
+              ? "white"
+              : "#aaa"
             : active
-            ? 'black'
-            : '#ccc'};
+            ? "black"
+            : "#ccc"};
         `
       )}
     />
   )
-)
+);
 
 export const EditorValue = React.forwardRef(
   (
@@ -51,15 +50,15 @@ export const EditorValue = React.forwardRef(
       ...props
     }: PropsWithChildren<
       {
-        value: any
+        value: any;
       } & BaseProps
     >,
-    ref: Ref<OrNull<null>>
+    ref: Ref<HTMLDivElement>
   ) => {
     const textLines = value.document.nodes
-      .map(node => node.text)
+      .map((node: any) => node.text)
       .toArray()
-      .join('\n')
+      .join("\n");
     return (
       <div
         ref={ref}
@@ -96,20 +95,20 @@ export const EditorValue = React.forwardRef(
           {textLines}
         </div>
       </div>
-    )
+    );
   }
-)
+);
 
 export const Icon = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
-    ref: Ref<OrNull<HTMLSpanElement>>
+    ref: Ref<HTMLSpanElement>
   ) => (
     <span
       {...props}
       ref={ref}
       className={cx(
-        'material-icons',
+        "material-icons",
         className,
         css`
           font-size: 18px;
@@ -118,12 +117,12 @@ export const Icon = React.forwardRef(
       )}
     />
   )
-)
+);
 
 export const Instruction = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
-    ref: Ref<OrNull<HTMLDivElement>>
+    ref: Ref<HTMLDivElement>
   ) => (
     <div
       {...props}
@@ -140,12 +139,12 @@ export const Instruction = React.forwardRef(
       )}
     />
   )
-)
+);
 
 export const Menu = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
-    ref: Ref<OrNull<HTMLDivElement>>
+    ref: Ref<HTMLDivElement>
   ) => (
     <div
       {...props}
@@ -164,16 +163,20 @@ export const Menu = React.forwardRef(
       )}
     />
   )
-)
+);
 
-export const Portal = ({ children }) => {
-  return ReactDOM.createPortal(children, document.body)
+interface PortalProps{
+  children: JSX.Element
 }
+
+export const Portal = ({children}: PortalProps) => {
+  return ReactDOM.createPortal(children, document.body);
+};
 
 export const Toolbar = React.forwardRef(
   (
     { className, ...props }: PropsWithChildren<BaseProps>,
-    ref: Ref<OrNull<HTMLDivElement>>
+    ref: Ref<HTMLDivElement>
   ) => (
     <Menu
       {...props}
@@ -190,4 +193,4 @@ export const Toolbar = React.forwardRef(
       )}
     />
   )
-)
+);

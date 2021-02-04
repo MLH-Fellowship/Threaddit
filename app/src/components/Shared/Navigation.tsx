@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import { AmplifySignOut } from "@aws-amplify/ui-react";
+import { Switch, Route, Link } from "react-router-dom";
+import { ChatRightTextFill } from "react-bootstrap-icons";
+
 import Home from "../Home/Home";
 import Chats from "../Chats/Chats";
-import { Navbar, Nav } from "react-bootstrap";
 import { AuthContext } from "../../store/AuthContext";
-import { Switch, Route, Link } from "react-router-dom";
-import { AmplifySignOut } from "@aws-amplify/ui-react";
-import { ChatRightTextFill } from "react-bootstrap-icons";
 
 const Navigation = () => {
   const authContext = useContext(AuthContext);
