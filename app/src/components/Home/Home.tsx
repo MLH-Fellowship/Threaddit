@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {listQuery} from "../Chats/queries"
 
 const Home = () => {
-  return <div>
+  const [data, setData] = useState("");
+  useEffect(() => {
+    async function getPosts() {
+      const data = await listQuery()
+      setData(data)
+  }
+  getPosts();
+  }, [])
+
+  return( <div>
   <h2>Welcome to Threaddit!</h2>
-  <button onClick={listQuery}>GraphQL Query</button>
-  </div>;
+  <div>{data}</div>
+  </div>);
 };
 
 export default Home;
