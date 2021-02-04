@@ -1,6 +1,3 @@
-import React, { useContext, useEffect, useState } from "react";
-import { withAuthenticator } from "@aws-amplify/ui-react";
-import { AuthContext } from "../../store/AuthContext";
 import { API, graphqlOperation } from "aws-amplify";
 
 
@@ -29,11 +26,10 @@ const listPosts = `query listPosts {
 
   export const postMutation = async (postDetails: any) => {
     console.log('post mutation');
-  const newPost = await API.graphql(graphqlOperation(addPost, postDetails));
-    alert(JSON.stringify(newPost));
+    const newPost = await API.graphql(graphqlOperation(addPost, postDetails));
   };
   export const listQuery = async () => {
     console.log('listing todos');
     const allTodos = await API.graphql(graphqlOperation(listPosts));
-    alert(JSON.stringify(allTodos));
+    return JSON.stringify(allTodos);
   };
