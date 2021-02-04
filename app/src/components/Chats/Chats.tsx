@@ -3,6 +3,8 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import { Container, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../store/AuthContext";
 import Richtext from "../Slate/Richtext";
+import {postMutation} from "./queries"
+
 
 const Chats = () => {
   const authContext = useContext(AuthContext);
@@ -12,13 +14,19 @@ const Chats = () => {
   }, [authContext]);
 
   const [title, setTitle] = useState("");
+
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
     let content = localStorage.getItem("content");
-    //TODO: save to database
-    console.log(content);
-    console.log(title);
+    const postDetails = {
+      title: title,
+      user: 'aa@gmail.com', //should be user id
+      description: content
+    };
+    postMutation(postDetails);
   };
+
+ 
 
   return (
     <Container fluid="md" style={{ padding: "50px" }}>
@@ -37,6 +45,7 @@ const Chats = () => {
   
       </Form>
     </Container>
+  
   );
 };
 

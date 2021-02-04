@@ -13,5 +13,22 @@
       "providerPlugin": "awscloudformation",
       "type": "manual"
     }
+  },
+  "api": {
+    "threaddit": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "auththreaddite49feb88"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
   }
 }
