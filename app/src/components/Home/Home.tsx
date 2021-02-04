@@ -12,6 +12,7 @@ import { withHistory } from "slate-history";
 
 interface PostSchema {
   title: string;
+  description: string;
 }
 
 const Home = () => {
@@ -32,31 +33,28 @@ const Home = () => {
   return (
     <div>
       <h2>Welcome to Threaddit!</h2>
-      <ul>
-        {posts &&
-          posts.map((post: any) => (
-            <li key={post.title.toString()}>{post.title}</li>
-          ))}
-      </ul>
       <div style={{ userSelect: "none" }} contentEditable={false}>
         <ul>
           {posts.map((post: any) => (
-            <li key={post.title.toString()}>{post.title}</li>
-          ))}
-        </ul>
-        <Slate
+            <li key={post.id.toString()}>
+              <h1>{post.title}</h1>
+              <Slate
           style={{ userSelect: "none" }}
           contentEditable={false}
           editor={editor}
-          value={JSON.parse(
-            '[{"type":"paragraph","children":[{"text":"cooontent"}]}]'
-          )}
+          value={JSON.parse('[{"type":"paragraph","children":[{"text":"cooontent"}]}]')}
           onChange={(value) => {
             console.log(value);
           }}
         >
           <Editable style={{ userSelect: "none" }} contentEditable={false} />
         </Slate>
+              <p>{post.description}</p>
+              <p>{post.user}</p>
+              </li>
+          ))}
+        </ul>
+        
       </div>
     </div>
   );
