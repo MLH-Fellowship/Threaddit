@@ -1,0 +1,17 @@
+{
+  "name": "threaddit",
+  "version": "1.0.0",
+  "description": "Your comfort-zone for interacting with fellows!",
+  "main": "./app/src/index.js",
+  "repository": "https://github.com/MLH-Fellowship/Threaddit",
+  "author": "Gita Alekhya Paul <54375111+gitaalekhyapaul@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "install": "cd app && yarn install",
+    "start": "cd app && yarn start",
+    "build": "cd app && yarn build",
+    "test": "cd app && yarn test",
+    "eject": "cd app && yarn eject"
+  }
+}
