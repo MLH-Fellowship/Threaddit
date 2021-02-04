@@ -6,15 +6,21 @@ import { ChatRightTextFill } from "react-bootstrap-icons";
 
 import Home from "../Home/Home";
 import Chats from "../Chats/Chats";
-import { AuthContext } from "../../store/AuthContext";
+import { AuthContext } from "../../Store/AuthContext";
+import { UserContext } from "../../Store/UserContext";
 
 const Navigation = () => {
   const authContext = useContext(AuthContext);
+  const userContext = useContext(UserContext);
 
   const handleLogout = () => authContext.setIsAuth(false);
 
   useEffect(() => {
-    authContext.checkAuth();
+    const setUserProfile = async () => {
+      userContext.setUser(await authContext.checkAuth());
+    };
+    setUserProfile();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authContext]);
 
   return (
