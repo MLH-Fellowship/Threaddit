@@ -72,13 +72,13 @@ const toggleBlock = (editor: any, format: any) => {
   const isActive = isBlockActive(editor, format);
   const isList = LIST_TYPES.includes(format);
 
-  /* Transforms.unwrapNodes(editor, {
-    match: n =>
+  Transforms.unwrapNodes(editor, {
+    match: (n) =>
       LIST_TYPES.includes(
-        !Editor.isEditor(n) && SlateElement.isElement(n) && n.type
+        (!Editor.isEditor(n) && SlateElement.isElement(n) && n.type) as string
       ),
     split: true,
-  })*/
+  });
   const newProperties: Partial<SlateElement> = {
     type: isActive ? "paragraph" : isList ? "list-item" : format,
   };
@@ -101,12 +101,12 @@ const toggleMark = (editor: any, format: any) => {
 };
 
 const isBlockActive = (editor: any, format: any) => {
-  /*const [match] = Editor.nodes(editor, {
-    match: n =>
+  const [match] = Editor.nodes(editor, {
+    match: (n) =>
       !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format,
-  })*/
+  });
 
-  return true; //!!match
+  return !!match;
 };
 
 const isMarkActive = (editor: any, format: any) => {

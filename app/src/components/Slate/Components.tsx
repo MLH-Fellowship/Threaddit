@@ -4,7 +4,7 @@ import { cx, css } from "@emotion/css";
 
 interface BaseProps {
   className: string;
-  [key: string]: unknown;
+  [key: string]: any;
 }
 
 export const Button = React.forwardRef(
