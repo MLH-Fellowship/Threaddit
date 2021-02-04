@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-
+import { Container, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../store/AuthContext";
 import Richtext from "../Slate/Richtext";
 
@@ -21,20 +21,22 @@ const Chats = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input
-            type="text"
+    <Container fluid="md" style={{ padding: "50px" }}>
+      <h2>Create a Post</h2>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+        <Form.Control type="text" placeholder="Title" 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
-        <Richtext />
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+          </Form.Group>
+          <Form.Group style={{border: '1px solid rgba(0, 0, 0, 0.05)'}} >
+            <Richtext/>
+        </Form.Group>
+        <Button type="submit" variant="secondary">Post</Button>
+  
+      </Form>
+    </Container>
   );
 };
 
