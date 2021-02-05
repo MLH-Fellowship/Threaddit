@@ -29,7 +29,7 @@ const Home = () => {
       setPosts(JSON.parse(data).data.listPosts.items);
     }
     getPosts();
-  }, [posts]);
+  }, []);
 
   //
   return (
