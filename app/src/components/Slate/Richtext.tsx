@@ -161,11 +161,6 @@ export const Leaf = ({ attributes, children, leaf }: LeafProps) => {
   if (leaf.underline) {
     children = <u>{children}</u>;
   }
-
-  if (leaf.blockquote) {
-    children = <blockquote>{children}</blockquote>;
-  }
-
   return <span {...attributes}>{children}</span>;
 };
 

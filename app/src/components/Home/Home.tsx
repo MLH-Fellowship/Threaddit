@@ -53,6 +53,7 @@ const Home = () => {
                   contentEditable={false}
                   renderElement={Element}
                   renderLeaf={Leaf}
+                  readOnly={true}
                 />
               </Slate>
               <p>{post.user}</p>
