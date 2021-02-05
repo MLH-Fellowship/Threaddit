@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { listQuery } from "../Chats/queries";
 import { Editable, withReact, useSlate, Slate } from "slate-react";
+import { Card, Container, Button, Form } from "react-bootstrap";
 import { Element, Leaf } from "../Slate/Richtext";
 import {
   Editor,
@@ -33,12 +34,13 @@ const Home = () => {
   //
   return (
     <div>
-      <h2>Welcome to Threaddit!</h2>
+      <h2 className="text-center mt-5">Welcome to Threaddit!</h2>
       <div style={{ userSelect: "none" }} contentEditable={false}>
         <ul>
           {posts.map((post: PostSchema) => (
-            <li key={post.id.toString()}>
-              <h1>{post.title}</h1>
+            <Card className="mt-5 mx-5" border="secondary">
+              <Card.Header>{post.title}</Card.Header>
+              <Card.Body>
               <Slate
                 style={{ userSelect: "none" }}
                 contentEditable={false}
@@ -56,8 +58,9 @@ const Home = () => {
                   readOnly={true}
                 />
               </Slate>
-              <p>{post.user}</p>
-            </li>
+              </Card.Body>
+              <Card.Footer className="mb-2 text-muted">Posted by u/{post.user}</Card.Footer>
+            </Card>
           ))}
         </ul>
       </div>
