@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { listQuery } from "../Chats/queries";
 import { Editable, withReact, useSlate, Slate } from "slate-react";
+import { Element, Leaf } from "../Slate/Richtext";
 import {
   Editor,
   Transforms,
@@ -50,6 +51,8 @@ const Home = () => {
                 <Editable
                   style={{ userSelect: "none" }}
                   contentEditable={false}
+                  renderElement={Element}
+                  renderLeaf={Leaf}
                 />
               </Slate>
               <p>{post.user}</p>
