@@ -40,7 +40,7 @@ const Home = () => {
         <Accordion defaultActiveKey="0">
           {posts.map((post: PostSchema) => (
            
-            <Card className="mt-5 mx-5" border="secondary">
+            <Card className="mt-5 mx-5 border-bottom" border="secondary" >
               <Card.Header>
               <Accordion.Toggle as={Card.Header} eventKey={post.id}>{post.title}
                 </Accordion.Toggle>
