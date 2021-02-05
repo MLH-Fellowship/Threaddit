@@ -26,7 +26,7 @@ const Chats = () => {
     const postDetails = {
       title: title,
       user: userContext.user.username,
-      description: content,
+      description: `${content}`,
     };
     postMutation(postDetails);
   };

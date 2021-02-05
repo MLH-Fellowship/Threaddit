@@ -19,14 +19,12 @@ interface PostSchema {
 
 const Home = () => {
   const editor = useMemo(() => withReact(createEditor()), []);
-  const [data, setData] = useState("");
   const [posts, setPosts] = useState<Array<PostSchema>>([]);
   useEffect(() => {
     async function getPosts() {
       const data = await listQuery();
-      setData(data);
-      console.log(data);
       setPosts(JSON.parse(data).data.listPosts.items);
+      console.log(posts);
     }
     getPosts();
   }, []);
@@ -44,11 +42,9 @@ const Home = () => {
                 style={{ userSelect: "none" }}
                 contentEditable={false}
                 editor={editor}
-                value={JSON.parse(
-                  '[{"type":"paragraph","children":[{"text":"cooontent"}]}]'
-                )}
+                value={JSON.parse(`${post.description}`)}
                 onChange={(value) => {
-                  console.log(value);
+                  return;
                 }}
               >
                 <Editable
@@ -56,7 +52,6 @@ const Home = () => {
                   contentEditable={false}
                 />
               </Slate>
-              <p>{post.description}</p>
               <p>{post.user}</p>
             </li>
           ))}
