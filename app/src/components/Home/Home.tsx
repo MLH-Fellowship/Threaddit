@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { listQuery } from "../Chats/queries";
 import { Editable, withReact, useSlate, Slate } from "slate-react";
-import { Card, Container, Button, Form } from "react-bootstrap";
+import { Card, Accordion, AccordionToggle, Button} from "react-bootstrap";
 import { Element, Leaf } from "../Slate/Richtext";
 import {
   Editor,
@@ -37,11 +37,18 @@ const Home = () => {
       <h2 className="text-center mt-5">Welcome to Threaddit!</h2>
       <div style={{ userSelect: "none" }} contentEditable={false}>
         <ul>
+        <Accordion defaultActiveKey="0">
           {posts.map((post: PostSchema) => (
+           
             <Card className="mt-5 mx-5" border="secondary">
-              <Card.Header>{post.title}</Card.Header>
-              <Card.Body>
-              <Slate
+              <Card.Header>
+              <Accordion.Toggle as={Card.Header} eventKey={post.id}>{post.title}
+                </Accordion.Toggle>
+                </Card.Header>
+                
+                <Accordion.Collapse eventKey={post.id}>
+                  <Card.Body>
+                    <Slate
                 style={{ userSelect: "none" }}
                 contentEditable={false}
                 editor={editor}
@@ -58,10 +65,13 @@ const Home = () => {
                   readOnly={true}
                 />
               </Slate>
-              </Card.Body>
+                  </Card.Body>
+              </Accordion.Collapse>
               <Card.Footer className="mb-2 text-muted">Posted by u/{post.user}</Card.Footer>
             </Card>
+            
           ))}
+          </Accordion>
         </ul>
       </div>
     </div>
