@@ -1,6 +1,5 @@
 import { API, graphqlOperation } from "aws-amplify";
 
-
 const listPosts = `query listPosts {
     listPosts{
       items{
@@ -26,7 +25,7 @@ const listPosts = `query listPosts {
 
   export const postMutation = async (postDetails: any) => {
     console.log('post mutation');
-    const newPost = await API.graphql(graphqlOperation(addPost, postDetails));
+    await API.graphql(graphqlOperation(addPost, postDetails));
   };
   export const listQuery = async () => {
     console.log('listing todos');

@@ -11,8 +11,10 @@ const AuthContextProvider: React.FC = (props) => {
   const [isAuth, setIsAuth] = useState(false);
   const checkAuth = async () => {
     try {
-      await Auth.currentAuthenticatedUser();
+      const profile = await Auth.currentAuthenticatedUser();
+      console.log(profile);
       setIsAuth(true);
+      return profile;
     } catch (err) {
       setIsAuth(false);
     }
