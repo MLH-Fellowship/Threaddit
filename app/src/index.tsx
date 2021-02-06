@@ -7,6 +7,7 @@ import Navigation from "./components/Shared/Navigation";
 import awsconfig from "./aws-exports";
 import AuthContextProvider from "./Store/AuthContext";
 import UserContextProvider from "./Store/UserContext";
+import "./components/Shared/style.css";
 
 Amplify.configure(awsconfig);
 
