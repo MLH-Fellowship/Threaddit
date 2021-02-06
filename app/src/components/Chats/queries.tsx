@@ -10,7 +10,7 @@ const listPosts = `query listPosts {
       }
     }
   }`;
-  const addPost = `mutation createPost($title:String! $user: String $description: String!) {
+const addPost = `mutation createPost($title:String! $user: String $description: String!) {
     createPost(input:{
       title:$title
       user: $user
@@ -23,12 +23,10 @@ const listPosts = `query listPosts {
     }
   }`;
 
-  export const postMutation = async (postDetails: any) => {
-    console.log('post mutation');
-    await API.graphql(graphqlOperation(addPost, postDetails));
-  };
-  export const listQuery = async () => {
-    console.log('listing todos');
-    const allTodos = await API.graphql(graphqlOperation(listPosts));
-    return JSON.stringify(allTodos);
-  };
+export const postMutation = async (postDetails: any) => {
+  await API.graphql(graphqlOperation(addPost, postDetails));
+};
+export const listQuery = async () => {
+  const allTodos = await API.graphql(graphqlOperation(listPosts));
+  return JSON.stringify(allTodos);
+};

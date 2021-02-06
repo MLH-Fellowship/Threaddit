@@ -202,7 +202,7 @@ const MarkButton = ({ format, icon }: ButtonProps) => {
 const initialValue = [
   {
     type: "paragraph",
-    children: [{ text: "Text (optional)" }],
+    children: [{ text: "Pour in your thoughts!" }],
   },
 ];
 

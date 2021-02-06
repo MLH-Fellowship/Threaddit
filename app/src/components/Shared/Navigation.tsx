@@ -25,8 +25,12 @@ const Navigation = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" className="justify-content-end">
-        <Navbar.Brand as={Link} to="/">
+      <Navbar
+        bg="dark"
+        variant="dark"
+        className="justify-content-end align-middle threaddit-heading"
+      >
+        <Navbar.Brand as={Link} to="/" className="threaddit-heading">
           <ChatRightTextFill color="white" size="1.5rem" />
           {"  "}
           Threaddit
@@ -38,14 +42,14 @@ const Navigation = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/chats">
-              {authContext.isAuth ? "Chats" : "Login"}
+            <Nav.Link as={Link} to="/post">
+              {authContext.isAuth ? "Post" : "Login"}
             </Nav.Link>
           </Nav.Item>
         </Nav>
         <Nav className="ml-auto">
           {authContext.isAuth && (
-            <Nav.Item className="justify-content-end">
+            <Nav.Item>
               <AmplifySignOut onClick={() => handleLogout()} />
             </Nav.Item>
           )}
@@ -53,7 +57,7 @@ const Navigation = () => {
       </Navbar>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/chats" exact component={Chats} />
+        <Route path="/post" exact component={Chats} />
       </Switch>
     </>
   );

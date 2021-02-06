@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&family=Yusei+Magic&display=swap");
+.postcard {
+  font-family: "Sriracha", cursive;
+}
+
+.threaddit-heading {
+  font-family: "Yusei Magic", sans-serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.container-fluid,
+.container {
+  align-items: center;
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
