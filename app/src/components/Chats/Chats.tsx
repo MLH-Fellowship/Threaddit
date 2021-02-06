@@ -5,6 +5,7 @@ import { AuthContext } from "../../Store/AuthContext";
 import { UserContext } from "../../Store/UserContext";
 import Richtext from "../Slate/Richtext";
 import { postMutation } from "./queries";
+import { useHistory } from "react-router-dom";
 
 const Chats = () => {
   const authContext = useContext(AuthContext);
@@ -19,8 +20,9 @@ const Chats = () => {
   }, [authContext]);
 
   const [title, setTitle] = useState("");
+  const history = useHistory();
 
-  const handleSubmit = (evt: React.FormEvent) => {
+  const handleSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault();
     let content = localStorage.getItem("content");
     const postDetails = {
@@ -28,7 +30,8 @@ const Chats = () => {
       user: userContext.user.username,
       description: `${content}`,
     };
-    postMutation(postDetails);
+    await postMutation(postDetails);
+    history.push("/");
   };
 
   return (
