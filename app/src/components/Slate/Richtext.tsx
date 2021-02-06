@@ -120,7 +120,7 @@ interface ElementProps {
   element: any;
 }
 
-const Element = ({ attributes, children, element }: ElementProps) => {
+export const Element = ({ attributes, children, element }: ElementProps) => {
   switch (element.type) {
     case "block-quote":
       return <blockquote {...attributes}>{children}</blockquote>;
@@ -140,12 +140,12 @@ const Element = ({ attributes, children, element }: ElementProps) => {
 };
 
 interface LeafProps {
-  attributes: HTMLAttributes<any>;
+  attributes: any;
   children: JSX.Element;
   leaf: any;
 }
 
-const Leaf = ({ attributes, children, leaf }: LeafProps) => {
+export const Leaf = ({ attributes, children, leaf }: LeafProps) => {
   if (leaf.bold) {
     children = <strong>{children}</strong>;
   }
@@ -161,7 +161,6 @@ const Leaf = ({ attributes, children, leaf }: LeafProps) => {
   if (leaf.underline) {
     children = <u>{children}</u>;
   }
-
   return <span {...attributes}>{children}</span>;
 };
 
@@ -203,10 +202,8 @@ const MarkButton = ({ format, icon }: ButtonProps) => {
 const initialValue = [
   {
     type: "paragraph",
-    children: [
-      { text: "Text (optional)" },
-    ],
-  }
+    children: [{ text: "Text (optional)" }],
+  },
 ];
 
 export default RichText;
