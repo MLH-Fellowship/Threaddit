@@ -1,26 +1,11 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { listQuery } from "../Chats/queries";
-import { Editable, withReact, useSlate, Slate } from "slate-react";
-import {
-  Card,
-  Accordion,
-  AccordionToggle,
-  Button,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Editable, withReact, Slate } from "slate-react";
+import { Card, Accordion, Container, Row, Col } from "react-bootstrap";
 import { ChatRightTextFill } from "react-bootstrap-icons";
 import { Element, Leaf } from "../Slate/Richtext";
 import { AuthContext } from "../../Store/AuthContext";
-import {
-  Editor,
-  Transforms,
-  createEditor,
-  Node,
-  Element as SlateElement,
-} from "slate";
-import { withHistory } from "slate-history";
+import { createEditor } from "slate";
 
 interface PostSchema {
   title: string;
@@ -36,9 +21,9 @@ const Home = () => {
     async function getPosts() {
       const data = await listQuery();
       setPosts(JSON.parse(data).data.listPosts.items);
-      console.log(posts);
     }
     getPosts();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const authContext = useContext(AuthContext);
@@ -130,7 +115,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*
-value={JSON.parse('[{\"type\":\"paragraph\",\"children\":[{\"text\":\"cooontent\"}]}]')}
-*/

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { AmplifySignOut } from "@aws-amplify/ui-react";
 import { Switch, Route, Link } from "react-router-dom";
 import { ChatRightTextFill } from "react-bootstrap-icons";

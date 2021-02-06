@@ -48,7 +48,7 @@ const Chats = () => {
                   />
                 </Form.Group>
               </Card.Header>
-              <Card.Body>
+              <Card.Body className="text-left">
                 <Form.Group style={{ border: "1px solid rgba(0, 0, 0, 0.05)" }}>
                   <Richtext />
                 </Form.Group>
