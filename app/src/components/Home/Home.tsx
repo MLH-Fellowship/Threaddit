@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { listQuery } from "../Chats/queries";
 import { Editable, withReact, Slate } from "slate-react";
 import { Card, Accordion, Container, Row, Col } from "react-bootstrap";
@@ -104,7 +105,7 @@ const Home = () => {
               Threaddit maintains a single thread of all the stories and posts
               people around the world share!
               <br></br>
-              <a href="/post">Login</a> to enter the beautiful world of
+              <Link to="/post">Login</Link> to enter the beautiful world of
               Threaddit!
             </p>
           </Col>
